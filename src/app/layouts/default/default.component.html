@@ -1,0 +1,48 @@
+<app-header (MenuHidden) ="MenuHidden($event)"   (configHiddenEmit) ="configHidden($event)"></app-header>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" [opened]="!sidbarhidden">
+      <mat-list >
+        <mat-list-item>Gérer Widgets</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 2</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 3</mat-list-item>
+      </mat-list>
+
+    </mat-drawer>
+    <mat-drawer-content>  
+      <div fxLayout="row" fxLayoutAlign="start start" >
+        <div fxFlex>
+          <div class="widgets">
+        <app-sidebar [widget]="widgetArray" (indexWidget) ="getIndexWidget($event)"></app-sidebar>
+        <router-outlet></router-outlet>
+      </div>
+        </div>
+        <div fxFlex="20"  fxLayoutAlign="end end">
+          <mat-drawer  class="config" mode="side" [opened]="sidbarconfigHidden">
+            <mat-card  class="mat-card-padding">
+
+            <mat-card-content   fxLayout="column">
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Titre:</mat-label>
+                <input matInput placeholder="Titre" [(ngModel)]="widgetArray[index].titre" value="Titre">
+              </mat-form-field>  
+              <div >
+                 <mat-label>color:</mat-label>
+                <i class="material-icons">
+                  color_lens
+                  </i>
+                  <input type="text"   [(ngModel)]="widgetArray[index].background"/>
+              </div>
+            
+               </mat-card-content>
+
+          </mat-card>
+          </mat-drawer>
+    </div>
+      
+</div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+<app-footer></app-footer>
