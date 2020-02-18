@@ -12,6 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: 
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule  ,
     MatInputModule ,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
 
   ],
   exports:[DashboradComponent ,

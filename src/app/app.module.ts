@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RoutingModule} from './routing/routing.module';
 import { SharedModule } from './shared/shared.module';
 import { DefaultModule } from './layouts/default/default.module';
+import { ApiService } from './service/api.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,9 +17,10 @@ import { DefaultModule } from './layouts/default/default.module';
     BrowserAnimationsModule,
     RoutingModule , 
     SharedModule,
-    DefaultModule
+    DefaultModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

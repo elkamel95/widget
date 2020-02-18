@@ -1,6 +1,7 @@
 <app-header (MenuHidden) ="MenuHidden($event)"   (configHiddenEmit) ="configHidden($event)"></app-header>
 <mat-drawer-container class="example-container">
     <mat-drawer mode="side" [opened]="!sidbarhidden">
+      <ng-container>
       <mat-list >
         <mat-list-item>Gérer Widgets</mat-list-item>
         <mat-divider></mat-divider>
@@ -8,24 +9,29 @@
         <mat-divider></mat-divider>
         <mat-list-item>Item 3</mat-list-item>
       </mat-list>
-
+      </ng-container>
+      <mat-list>
+  
+    </mat-list>
     </mat-drawer>
     <mat-drawer-content>  
-      <div fxLayout="row" fxLayoutAlign="start start" >
-        <div fxFlex>
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start start" >
+        <div fxFlex >
           <div class="widgets">
-        <app-sidebar [widget]="widgetArray" (indexWidget) ="getIndexWidget($event)"></app-sidebar>
+
+  <app-sidebar   [OpenPops]="!sidbarconfigHidden" [widget]="widgetArray"  (indexWidget) ="getIndexWidget($event)"></app-sidebar>
         <router-outlet></router-outlet>
       </div>
         </div>
         <div fxFlex="20"  fxLayoutAlign="end end">
           <mat-drawer  class="config" mode="side" [opened]="sidbarconfigHidden">
-            <mat-card  class="mat-card-padding">
+            <mat-card   class="mat-card-padding">
 
             <mat-card-content   fxLayout="column">
 
               <mat-form-field class="example-full-width">
                 <mat-label>Titre:</mat-label>
+
                 <input matInput placeholder="Titre" [(ngModel)]="widgetArray[index].titre" value="Titre">
               </mat-form-field>  
               <div >
@@ -33,12 +39,27 @@
                 <i class="material-icons">
                   color_lens
                   </i>
-                  <input type="text"   [(ngModel)]="widgetArray[index].background"/>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Text</mat-label>
+                    <input matInput placeholder="Text"
+                    [(ngModel)]="widgetArray[index].color"
+                    value="">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Background</mat-label>
+                    <input matInput placeholder="Background" 
+                    value="" [(ngModel)]="widgetArray[index].background">
+                  </mat-form-field>
+
+
               </div>
-            
+              <button mat-raised-button color="warn"(click) = "SaveConfig()">Save</button>
+
                </mat-card-content>
 
           </mat-card>
+
+
           </mat-drawer>
     </div>
       

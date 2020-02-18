@@ -1,19 +1,21 @@
 <div fxLayout="column" fxLayoutGap="20px" >
 <div fxLayout="row" fxLayoutGap="20px" 
 fxLayoutAlign="center center" >
-  
 
-    <div fxFlex="25" *ngFor="let w of widget  let index = index;" >
-        <mat-card  [id]="index" (click)="emitChange(index)"  [ngStyle]="{
+    <div fxFlex="25" *ngFor="let w of widget  let index = index;" [fxFlexOrder]="index">
+        <mat-card   [id]="index" (click)="emitChange(index)" cdkDrag   (cdkDragEnded)="dragEnded($event)"
+        [ngStyle]="{
             'background': w.background,
-            'color': w.color}">{{w.titre}}</mat-card>
+            'color': w.color
+        
+        }">{{w.titre}} 
+        </mat-card>
     </div>
   
     </div>
 
  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
   
-
     <div fxFlex="25">
         <mat-card>Simple card</mat-card>
     </div>
