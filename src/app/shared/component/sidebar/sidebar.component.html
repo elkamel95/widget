@@ -2,13 +2,13 @@
 <div fxLayout="row" fxLayoutGap="20px" 
 fxLayoutAlign="center center" >
 
-    <div fxFlex="25" *ngFor="let w of widget  let index = index;" [fxFlexOrder]="index">
-        <mat-card   [id]="index" (click)="emitChange(index)" cdkDrag   (cdkDragEnded)="dragEnded($event)"
+    <div fxFlex="25" *ngFor="let w of widget  let index = index ; " [fxFlexOrder]="w.orderWidget ">
+        <mat-card   [id]="index" (click)="emitChange(index,w.orderWidget)" cdkDrag   (cdkDragEnded)="dragEnded(index,$event)"
         [ngStyle]="{
             'background': w.background,
-            'color': w.color
-        
-        }">{{w.titre}} 
+            'color': w.color,
+            'transform': 'translate3d('+w.marginleft  +', '+w.marginbottom+', 0px)' }"
+            >{{w.titre}} 
         </mat-card>
     </div>
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from 'src/app/bean/widget';
 import { ApiService } from './../../service/api.service';
+import { dispositions } from 'src/app/bean/dispositions';
 
 @Component({
   selector: 'app-default',
@@ -13,7 +14,8 @@ export class DefaultComponent implements OnInit {
 widgetArray:Widget[] = [];
 widget:Widget;
 index = 0;
-
+currentPosition = 0;
+positionWidget :dispositions ;
 ngOnInit() {
  this.widget = new Widget();
   this.widgetArray.push(this.widget);
@@ -27,6 +29,8 @@ ngOnInit() {
 
   this.api.getWidget().subscribe(data=>{
     this. widgetArray = data ;
+    this.currentPosition=data[0].orderWidget;
+    console.log(this.currentPosition);
    });
 }
   constructor(private api:ApiService ) { 
@@ -53,7 +57,16 @@ ngOnInit() {
   getIndexWidget($event){
  this.index = $event ;
   }
+  setPositionWidget($event){
+    this.positionWidget = $event ;
+
+     }
 SaveConfig(){
+  console.log( "xxx"+this.positionWidget.marginbottom);
+  console.log( "xxx"+this.positionWidget.marginleft);
+
+  this.widgetArray[this.index].marginleft=this.positionWidget.marginbottom;
+  this.widgetArray[this.index].marginbottom=this.positionWidget.marginleft;
   this.api.SaveWidget( this. widgetArray[this.index])
 
 }

@@ -19,7 +19,9 @@
         <div fxFlex >
           <div class="widgets">
 
-  <app-sidebar   [OpenPops]="!sidbarconfigHidden" [widget]="widgetArray"  (indexWidget) ="getIndexWidget($event)"></app-sidebar>
+  <app-sidebar (dispositions) ="setPositionWidget($event)"   [OpenPops]="!sidbarconfigHidden" [widget]="widgetArray" 
+   [currentPosition]="currentPosition" 
+   (indexWidget) ="getIndexWidget($event)"></app-sidebar>
         <router-outlet></router-outlet>
       </div>
         </div>
