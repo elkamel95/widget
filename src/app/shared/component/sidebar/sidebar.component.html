@@ -2,7 +2,7 @@
 <div fxLayout="row" fxLayoutGap="20px" 
 fxLayoutAlign="center center" >
 
-    <div fxFlex="25" *ngFor="let w of widget  let index = index ; " [fxFlexOrder]="w.orderWidget ">
+    <div fxFlex="25" *ngFor="let w of widget  let index = index ; " >
         <mat-card   [id]="index" (click)="emitChange(index,w.orderWidget)" cdkDrag   (cdkDragEnded)="dragEnded(index,$event)"
         [ngStyle]="{
             'background': w.background,
@@ -14,7 +14,7 @@ fxLayoutAlign="center center" >
   
     </div>
 
- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
+ <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
   
     <div fxFlex="25">
         <mat-card>Simple card</mat-card>
@@ -25,5 +25,5 @@ fxLayoutAlign="center center" >
     <div fxFlex="25">
         <mat-card>Simple card</mat-card>
     </div>
-</div>
+</div> -->
 </div>
