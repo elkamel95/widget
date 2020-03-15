@@ -15,7 +15,7 @@
     </mat-list>
     </mat-drawer>
     <mat-drawer-content>  
-      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start start" >
+      <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center" >
         <div fxFlex >
           <div class="widgets">
 
@@ -25,7 +25,7 @@
         <router-outlet></router-outlet>
       </div>
         </div>
-        <div fxFlex="20"  fxLayoutAlign="end end">
+        <div fxFlex="40"  fxLayoutAlign="end end">
           <mat-drawer  class="config" mode="side" [opened]="sidbarconfigHidden">
             <mat-card   class="mat-card-padding">
 
@@ -43,14 +43,14 @@
                   </i>
                   <mat-form-field class="example-full-width">
                     <mat-label>Text</mat-label>
-                    <input matInput placeholder="Text"
-                    [(ngModel)]="widgetArray[index].color"
+                    <input matInput  [cpPosition] = "'bottom' " placeholder="Text"
+                    [(colorPicker)]="widgetArray[index].color"
                     value="">
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
                     <mat-label>Background</mat-label>
-                    <input matInput placeholder="Background" 
-                    value="" [(ngModel)]="widgetArray[index].background">
+                    <input type="" matInput placeholder="Background" 
+                    value="" [cpPosition] = "'bottom' " [(colorPicker)]="widgetArray[index].background">
                   </mat-form-field>
 
 

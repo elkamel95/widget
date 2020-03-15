@@ -62,8 +62,7 @@ ChangeOrder(index,Order) {
       )
   { this.widget[  this. currentOrder].orderWidget =  this.widget[  this.OldOrder].orderWidget
     this.widget[  this.OldOrder].orderWidget =   this.widget[  this. currentOrder].orderWidget
-    console.log("currentOrder:"+  this.widget[  this. currentOrder].orderWidget );}
-console.log("OldOrder:"+   this.widget[  this.OldOrder].orderWidget);
+    }
 
 
 

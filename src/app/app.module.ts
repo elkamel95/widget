@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { DefaultModule } from './layouts/default/default.module';
 import { ApiService } from './service/api.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     RoutingModule , 
     SharedModule,
     DefaultModule,
-    HttpClientModule
+    HttpClientModule,
+    ColorPickerModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

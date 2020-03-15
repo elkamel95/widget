@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Widget } from 'src/app/bean/widget';
 import { ApiService } from './../../service/api.service';
 import { dispositions } from 'src/app/bean/dispositions';
@@ -10,6 +10,7 @@ import { dispositions } from 'src/app/bean/dispositions';
 })
 export class DefaultComponent implements OnInit {
   sidbarhidden =false;
+  innerWidth:any ;
  sidbarconfigHidden = false ; 
 widgetArray:Widget[] = [];
 widget:Widget;
@@ -36,6 +37,9 @@ ngOnInit() {
   constructor(private api:ApiService ) { 
     this.api.getWidget().subscribe(data=>{
       this. widgetArray = data ;
+      console.log(this.propName(this. widgetArray[1],
+        this. widgetArray[0].background) );
+
      });
 //     for (var _i = 0; _i < 3; _i++) {
 //     this.widget =  new Widget();
@@ -56,18 +60,28 @@ ngOnInit() {
 
   getIndexWidget($event){
  this.index = $event ;
+ console.log(this.propName(this. widgetArray[this.index],
+  this. widgetArray[ this.index ]['marginleft']) );
   }
   setPositionWidget($event){
     this.positionWidget = $event ;
 
      }
 SaveConfig(){
-  console.log( "xxx"+this.positionWidget.marginbottom);
-  console.log( "xxx"+this.positionWidget.marginleft);
-
-  this.widgetArray[this.index].marginleft=this.positionWidget.marginbottom;
+ this.widgetArray[this.index].marginleft=this.positionWidget.marginbottom;
   this.widgetArray[this.index].marginbottom=this.positionWidget.marginleft;
   this.api.SaveWidget( this. widgetArray[this.index])
 
 }
+
+propName(prop, value){
+  for(var i in prop) {
+    console.log(i );
+      if (prop[i] == value){
+           return i;
+      }
+  }
+  return false;
+}
+
 }

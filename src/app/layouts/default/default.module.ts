@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: 
@@ -32,10 +33,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule ,
     MatCardModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    ColorPickerModule
 
   ],
-  exports:[DashboradComponent ,
+  exports:[DashboradComponent ,ColorPickerModule,
   PostComponent ,DefaultComponent]
 
 })
